@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Mark Validation</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 420px; margin: 60px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+    input, button { padding: 8px; font-size: 16px; margin-top: 8px; width: 100%; box-sizing: border-box; }
+    #result { margin-top: 14px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h2>Quiz Mark Validation</h2>
+  <form id="quizForm" novalidate>
+    <label for="markInput">Enter Quiz Mark (0 to 10):</label>
+    <input type="text" id="markInput" name="markInput" placeholder="e.g., 8" />
+    <button type="submit" id="submitBtn">Validate Mark</button>
+  </form>
+  <p id="result"></p>
+
+  <script>
+    document.getElementById("quizForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const raw = document.getElementById("markInput").value.trim();
+      const resultEl = document.getElementById("result");
+      const mark = Number(raw);
+
+      // Validate integer mark between 0 and 10 inclusive
+      if (raw !== "" && Number.isInteger(mark) && mark >= 0 && mark <= 10) {
+        resultEl.style.color = "green";
+        resultEl.textContent = "Accepted: Valid mark (" + mark + ")";
+      } else {
+        resultEl.style.color = "red";
+        resultEl.textContent = "Rejected: Invalid mark";
+      }
+    });
+  </script>
+</body>
+</html>

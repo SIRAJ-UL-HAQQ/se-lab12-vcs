@@ -24,4 +24,9 @@ jobs:
           pip install selenium
 
       - name: Run Selenium boundary tests
-        run: python test_quiz_form.py
+        run: |
+          if [ -f "test_quiz_form.py" ]; then
+            python test_quiz_form.py
+          else
+            python code/test_quiz_form.py
+          fi

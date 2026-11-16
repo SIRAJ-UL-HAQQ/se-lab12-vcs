@@ -26,8 +26,8 @@
       const resultEl = document.getElementById("result");
       const mark = Number(raw);
 
-      // Intentional off-by-one bug: excludes 10 (should be mark <= 10)
-      if (raw !== "" && Number.isInteger(mark) && mark >= 0 && mark < 10) {
+      // Validate integer mark between 0 and 10 inclusive
+      if (raw !== "" && Number.isInteger(mark) && mark >= 0 && mark <= 10) {
         resultEl.style.color = "green";
         resultEl.textContent = "Accepted: Valid mark (" + mark + ")";
       } else {
