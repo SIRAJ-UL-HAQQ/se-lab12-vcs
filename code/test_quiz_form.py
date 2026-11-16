@@ -5,7 +5,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 
 # Load local quiz_form.html directly via file:// URI
-html_path = os.path.abspath("quiz_form.html")
+html_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "quiz_form.html")
 file_url = f"file:///{html_path.replace(os.sep, '/')}"
 
 options = Options()
